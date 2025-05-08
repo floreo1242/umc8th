@@ -29,9 +29,21 @@ public class Store {
     @Column(length = 100)
     private String imageUrl;
 
+    private Float score;
+
     @OneToMany(mappedBy = "store")
     private List<Mission> missionList = new ArrayList<>();
 
     @OneToMany(mappedBy = "store")
     private List<Review> reviewList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }
