@@ -1,4 +1,4 @@
-package umc.study.service.store;
+package umc.study.service.StoreService;
 
 import umc.study.domain.Store;
 

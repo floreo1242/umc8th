@@ -2,9 +2,10 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.mapping.AcceptedMission;
+import umc.study.domain.common.BaseEntity;
+import umc.study.domain.mapping.MemberMission;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,25 +14,22 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Mission {
+public class Mission extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Integer reward;
+
+    private LocalDate deadline;
+
+    private String missionSpec;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @Column(nullable = false)
-    private Integer cost;
-
-    @Column(nullable = false)
-    private Integer point;
-
-    @Column(nullable = false)
-    private LocalDateTime expireDate;
-
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
-    private List<AcceptedMission> acceptedMissionList = new ArrayList<>();
+    private List<MemberMission> memberMissionList = new ArrayList<>();
 }

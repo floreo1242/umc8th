@@ -2,7 +2,7 @@ package umc.study.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import umc.study.domain.mapping.FavoriteCategory;
+import umc.study.domain.common.BaseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,18 +12,14 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Category {
+public class Region extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 10)
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
     private List<Store> storeList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<FavoriteCategory> favoriteCategoryList = new ArrayList<>();
 }

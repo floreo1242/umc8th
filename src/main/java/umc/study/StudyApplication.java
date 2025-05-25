@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import umc.study.service.store.StoreQueryService;
+import umc.study.service.StoreService.StoreQueryService;
 
 @SpringBootApplication
 @EnableJpaAuditing
@@ -23,8 +23,9 @@ public class StudyApplication {
 
             // 파라미터 값 설정
             String name = "요아정";
-            float score = 4.0f;
+            Float score = 4.0f;
 
+            System.out.println("베뉴/신수정 week 6 실습 완료: ");
             // 쿼리 메서드 호출 및 쿼리 문자열과 파라미터 출력
             System.out.println("Executing findStoresByNameAndScore with parameters:");
             System.out.println("Name: " + name);
