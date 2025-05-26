@@ -10,6 +10,7 @@ import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.MissionConverter;
 import umc.study.domain.Mission;
 import umc.study.service.MissionService.MissionCommandService;
+import umc.study.validation.annotation.AlreadyAcceptedMission;
 import umc.study.web.dto.MissionRequestDTO;
 import umc.study.web.dto.MissionResponseDTO;
 
@@ -24,5 +25,11 @@ public class MissionRestController {
     public ApiResponse<MissionResponseDTO.CreateMissionResponseDTO> createMission(@RequestBody @Valid MissionRequestDTO.CreateMissionDTO request) {
         Mission mission = missionCommandService.createMission(request);
         return ApiResponse.onSuccess(MissionConverter.toCreateMissionDTO(mission));
+    }
+
+    @PostMapping("/accept")
+    public ApiResponse<MissionResponseDTO.AcceptMissionDTO> acceptMission(@RequestBody @Valid @AlreadyAcceptedMission MissionRequestDTO.AcceptMissionDTO request) {
+        Mission mission = missionCommandService.acceptMission(request);
+        return ApiResponse.onSuccess(MissionConverter.toAcceptMissionDTO(mission));
     }
 }

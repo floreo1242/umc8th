@@ -20,4 +20,16 @@ public class MissionResponseDTO {
         String missionSpec;
         Long storeId;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class AcceptMissionDTO {
+        Long missionId;
+        Integer reward;
+        LocalDate deadline;
+        String missionSpec;
+        Long storeId;
+    }
 }
