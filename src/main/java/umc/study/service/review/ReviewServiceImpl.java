@@ -41,4 +41,11 @@ public class ReviewServiceImpl implements ReviewService {
                 .orElseThrow(() -> new EntityNotFoundHandler(ErrorStatus.STORE_NOT_FOUND));
         return reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
     }
+
+    @Override
+    public Page<Review> getMyReviewList(Integer page) {
+        Member member = memberRepository.findById(1L)
+                .orElseThrow(() -> new EntityNotFoundHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        return reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
+    }
 }

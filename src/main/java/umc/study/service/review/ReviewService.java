@@ -9,4 +9,6 @@ public interface ReviewService {
     Review createReview(ReviewRequestDTO.CreateReviewDTO request);
 
     Page<Review> getReviewList(Long storeId, Integer page);
+
+    Page<Review> getMyReviewList(Integer page);
 }
