@@ -1,6 +1,8 @@
 package umc.study.service.mission;
 
+import org.springframework.data.domain.Page;
 import umc.study.domain.Mission;
+import umc.study.domain.mapping.MemberMission;
 import umc.study.web.dto.mission.MissionRequestDTO;
 
 public interface MissionCommandService {
@@ -12,4 +14,6 @@ public interface MissionCommandService {
     boolean existsById(Long missionId);
 
     boolean existsByMemberAndMission(Long memberId, Long missionId);
+
+    Page<MemberMission> getMyMissionList(int page);
 }

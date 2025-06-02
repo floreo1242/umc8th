@@ -1,6 +1,8 @@
 package umc.study.service.mission;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.apiPayload.code.status.ErrorStatus;
@@ -56,5 +58,12 @@ public class MissionCommandServiceImpl implements MissionCommandService {
     @Transactional
     public boolean existsByMemberAndMission(Long memberId, Long missionId) {
         return memberMissionRepository.existsByMemberIdAndMissionId(memberId, missionId);
+    }
+
+    @Override
+    public Page<MemberMission> getMyMissionList(int page) {
+        Member member = memberRepository.findById(1L)
+                .orElseThrow(() -> new EntityNotFoundHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        return memberMissionRepository.findAllByMember(member, PageRequest.of(page, 10));
     }
 }
