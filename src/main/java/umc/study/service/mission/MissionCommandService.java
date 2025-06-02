@@ -16,4 +16,6 @@ public interface MissionCommandService {
     boolean existsByMemberAndMission(Long memberId, Long missionId);
 
     Page<MemberMission> getMyMissionList(int page);
+
+    Mission completeMission(Long missionId);
 }

@@ -66,4 +66,16 @@ public class MissionCommandServiceImpl implements MissionCommandService {
                 .orElseThrow(() -> new EntityNotFoundHandler(ErrorStatus.MEMBER_NOT_FOUND));
         return memberMissionRepository.findAllByMember(member, PageRequest.of(page, 10));
     }
+
+    @Override
+    @Transactional
+    public Mission completeMission(Long missionId) {
+        Mission mission = missionRepository.findById(missionId)
+                .orElseThrow(() -> new EntityNotFoundHandler(ErrorStatus.MISSION_NOT_FOUND));
+        MemberMission memberMission = memberMissionRepository.findByMemberIdAndMissionId(1L, missionId)
+                .orElseThrow(() -> new EntityNotFoundHandler(ErrorStatus.MEMBER_MISSION_NOT_FOUND));
+        memberMission.completeMission();
+        memberMissionRepository.save(memberMission);
+        return mission;
+    }
 }

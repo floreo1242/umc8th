@@ -56,4 +56,16 @@ public class MissionResponseDTO {
         LocalDate deadline;
         String missionSpec;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CompleteMissionDTO {
+        Long missionId;
+        Integer reward;
+        LocalDate deadline;
+        String missionSpec;
+        Long storeId;
+    }
 }

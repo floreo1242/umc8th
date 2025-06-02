@@ -55,4 +55,13 @@ public class MissionRestController {
         Page<MemberMission> missionsList = missionCommandService.getMyMissionList(internalPage);
         return ApiResponse.onSuccess(MissionConverter.toMissionPreviewListDTO(missionsList));
     }
+
+    @Operation(
+            summary = "미션 완료 API",
+            description = "미션을 완료하는 API입니다. 미션 ID를 path variable로 전달해주세요."
+    )
+    @PostMapping("/{missionId}/complete")
+    public ApiResponse<MissionResponseDTO.CompleteMissionDTO> completeMission(@PathVariable Long missionId) {
+        return ApiResponse.onSuccess(MissionConverter.toCompleteMissionDTO(missionCommandService.completeMission(missionId)));
+    }
 }

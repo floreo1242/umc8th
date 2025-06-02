@@ -76,4 +76,14 @@ public class MissionConverter {
                 .missionList(missionPreviewDTOList)
                 .build();
     }
+
+    public static MissionResponseDTO.CompleteMissionDTO toCompleteMissionDTO(Mission mission) {
+        return MissionResponseDTO.CompleteMissionDTO.builder()
+                .missionId(mission.getId())
+                .reward(mission.getReward())
+                .deadline(mission.getDeadline())
+                .missionSpec(mission.getMissionSpec())
+                .storeId(mission.getStore().getId())
+                .build();
+    }
 }
