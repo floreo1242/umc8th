@@ -14,6 +14,7 @@ import umc.study.converter.ReviewConverter;
 import umc.study.domain.Review;
 import umc.study.service.review.ReviewService;
 import umc.study.validation.annotation.ExistStore;
+import umc.study.validation.annotation.ValidPage;
 import umc.study.web.dto.review.ReviewRequestDTO;
 import umc.study.web.dto.review.ReviewResponseDTO;
 
@@ -44,8 +45,9 @@ public class ReviewRestController {
     })
     @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다!")
     @GetMapping("/{storeId}/reviews")
-    public ApiResponse<ReviewResponseDTO.ReviewPreviewListDTO> getReviewList(@ExistStore @PathVariable(name = "storeId") Long storeId, @RequestParam(name = "page") Integer page) {
-        Page<Review> reviewList = reviewService.getReviewList(storeId, page);
+    public ApiResponse<ReviewResponseDTO.ReviewPreviewListDTO> getReviewList(@ExistStore @PathVariable(name = "storeId") Long storeId, @RequestParam(name = "page") @ValidPage Integer page) {
+        int internalPage = page - 1;
+        Page<Review> reviewList = reviewService.getReviewList(storeId, internalPage);
         return ApiResponse.onSuccess(ReviewConverter.reviewPreviewListDTO(reviewList));
     }
 }
