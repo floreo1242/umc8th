@@ -8,5 +8,5 @@ import umc.study.domain.Store;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
-    Page<Review> findAllByStoreId(Store store, PageRequest pageRequest);
+    Page<Review> findAllByStore(Store store, PageRequest pageRequest);
 }

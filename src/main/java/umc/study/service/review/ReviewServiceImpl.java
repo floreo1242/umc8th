@@ -39,6 +39,6 @@ public class ReviewServiceImpl implements ReviewService {
     public Page<Review> getReviewList(Long storeId, Integer page) {
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new EntityNotFoundHandler(ErrorStatus.STORE_NOT_FOUND));
-        return reviewRepository.findAllByStoreId(store, PageRequest.of(page, 10));
+        return reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
     }
 }
