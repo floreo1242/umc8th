@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import umc.study.service.MissionService.MissionCommandService;
+import umc.study.service.mission.MissionCommandService;
 import umc.study.validation.annotation.ExistMission;
 
 @Component

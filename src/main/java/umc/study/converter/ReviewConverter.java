@@ -3,8 +3,8 @@ package umc.study.converter;
 import umc.study.domain.Member;
 import umc.study.domain.Review;
 import umc.study.domain.Store;
-import umc.study.web.dto.ReviewRequestDTO;
-import umc.study.web.dto.ReviewResponseDTO;
+import umc.study.web.dto.review.ReviewRequestDTO;
+import umc.study.web.dto.review.ReviewResponseDTO;
 
 public class ReviewConverter {
 

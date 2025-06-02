@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.MissionConverter;
 import umc.study.domain.Mission;
-import umc.study.service.MissionService.MissionCommandService;
+import umc.study.service.mission.MissionCommandService;
 import umc.study.validation.annotation.AlreadyAcceptedMission;
-import umc.study.web.dto.MissionRequestDTO;
-import umc.study.web.dto.MissionResponseDTO;
+import umc.study.web.dto.mission.MissionRequestDTO;
+import umc.study.web.dto.mission.MissionResponseDTO;
 
 @RestController
 @RequestMapping("/missions")

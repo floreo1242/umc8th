@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import umc.study.service.StoreService.StoreQueryService;
+import umc.study.service.store.StoreQueryService;
 import umc.study.validation.annotation.ExistStore;
 
 @Component

@@ -5,8 +5,8 @@ import umc.study.domain.Mission;
 import umc.study.domain.Store;
 import umc.study.domain.enums.MissionStatus;
 import umc.study.domain.mapping.MemberMission;
-import umc.study.web.dto.MissionRequestDTO;
-import umc.study.web.dto.MissionResponseDTO;
+import umc.study.web.dto.mission.MissionRequestDTO;
+import umc.study.web.dto.mission.MissionResponseDTO;
 
 public class MissionConverter {
 
