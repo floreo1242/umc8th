@@ -17,6 +17,13 @@ public class MemberConverter {
                 .build();
     }
 
+    public static MemberResponseDTO.LoginResultDTO toLoginResultDTO(Long memberId, String accessToken) {
+        return MemberResponseDTO.LoginResultDTO.builder()
+                .memberId(memberId)
+                .accessToken(accessToken)
+                .build();
+    }
+
     public static Member toMember(MemberRequestDTO.JoinDTO request) {
         Gender gender = switch (request.getGender()) {
             case 1 -> Gender.MALE;
